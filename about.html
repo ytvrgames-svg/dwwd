@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why City RP - Rólunk</title>
+    
+    <!-- Fonts: Rajdhani (Headers) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Header / Nav -->
+    <nav>
+        <a href="index.html" class="logo">Why City RP</a>
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="about.html" class="active">Rólunk</a>
+            <a href="rules.html">Szabályzat</a>
+            <a href="#" id="loginBtn" class="btn nav-btn">Bejelentkezés</a>
+            <a href="#" id="logoutBtn" class="btn nav-btn" style="display:none; background-color: var(--secondary-color);">Kijelentkezés</a>
+        </div>
+    </nav>
+
+    <!-- 2. Hero / Fő banner -->
+    <div class="hero">
+        <h1>Ismerj meg minket</h1>
+        <p>A Why City RP célja a legrealisztikusabb magyar RP élmény biztosítása minden játékos számára.</p>
+        <div>
+            <a href="https://discord.gg/placeholder" target="_blank" class="btn">Csatlakozás Discordra</a>
+        </div>
+    </div>
+
+    <!-- 3. Csapat / Team bemutatás -->
+    <section class="team-section">
+        <h2>Csapatunk</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <h3>Noel</h3>
+                <p class="role">Fő admin / Fejlesztő</p>
+                <p>A szerver technikai hátteréért és a fejlesztésekért felel.</p>
+            </div>
+            <div class="team-card">
+                <h3>Alex</h3>
+                <p class="role">Adminisztrátor</p>
+                <p>A közösség menedzselése és a játékosok segítése a feladata.</p>
+            </div>
+            <div class="team-card">
+                <h3>Dávid</h3>
+                <p class="role">Moderátor</p>
+                <p>A Discord és a játékszerver rendjének fenntartása.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Küldetés / Mission -->
+    <section class="mission-section">
+        <h2>Küldetésünk</h2>
+        <p>Célunk, hogy egy élő, dinamikus várost hozzunk létre, ahol a döntéseid valódi következményekkel járnak.</p>
+    </section>
+
+    <!-- 5. Miért minket? / Why choose us? -->
+    <section class="why-us-section">
+        <h2>Miért minket válassz?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="ph ph-mask-happy"></i>
+                <span>Realisztikus Szerepjáték</span>
+            </div>
+            <div class="feature-card">
+                <i class="ph ph-users"></i>
+                <span>Aktív Közösség</span>
+            </div>
+            <div class="feature-card">
+                <i class="ph ph-gear"></i>
+                <span>Fejlesztett Rendszerek</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <section class="cta-section">
+        <h2>Csatlakozz még ma!</h2>
+        <div>
+            <a href="https://discord.gg/placeholder" target="_blank" class="btn">Csatlakozz Discordra</a>
+            <a href="#" id="heroRegBtn" class="btn secondary">Regisztráció</a>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer>
+        <p>&copy; 2026 Why City RP. Minden jog fenntartva.</p>
+        <div class="social-links">
+            <a href="https://discord.gg/placeholder" target="_blank">Discord</a> | 
+            <a href="https://youtube.com" target="_blank">YouTube</a> | 
+            <a href="https://twitch.tv" target="_blank">Twitch</a>
+        </div>
+    </footer>
+
+    <!-- 3. Auth Modal (Reused) -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-target="login-view">Bejelentkezés</div>
+                <div class="auth-tab" data-target="register-view">Regisztráció</div>
+            </div>
+            <form id="login-view" class="auth-form active">
+                <input type="email" id="login-email" placeholder="Email cím" required>
+                <input type="password" id="login-password" placeholder="Jelszó" required>
+                <button type="submit" class="btn">Belépés</button>
+                <button type="button" id="google-login-btn" class="btn google-btn">Google Bejelentkezés</button>
+                <p class="auth-switch">Nincs még fiókod? <a href="#" id="switch-to-reg">Regisztráció</a></p>
+            </form>
+            <form id="register-view" class="auth-form">
+                <input type="email" id="reg-email" placeholder="Email cím" required>
+                <input type="tel" id="reg-phone" placeholder="Telefonszám (+36...)" required>
+                <input type="password" id="reg-password" placeholder="Jelszó" required>
+                <button type="submit" class="btn">Regisztráció</button>
+                <p class="auth-switch">Van már fiókod? <a href="#" id="switch-to-login">Bejelentkezés</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast">Üzenet szövege...</div>
+
+    <!-- Firebase Logic -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why City RP - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i class="ph ph-city" style="font-size: 1.5rem; color: var(--primary-color);"></i>
+                <span>WHY CITY ADMIN</span>
+            </div>
+            <div class="sidebar-menu">
+                <div class="sidebar-item active" data-target="dashboard">
+                    <i class="ph ph-house"></i> <span>Dashboard</span>
+                </div>
+                <div class="sidebar-item" data-target="users">
+                    <i class="ph ph-users"></i> <span>Felhasználók</span>
+                </div>
+                <div class="sidebar-item" data-target="factions">
+                    <i class="ph ph-flag"></i> <span>Frakciók</span>
+                </div>
+                <div class="sidebar-item" data-target="applications">
+                    <i class="ph ph-envelope-open"></i> <span>Jelentkezések</span>
+                    <span id="pending-count-badge" class="badge-count" style="display:none">0</span>
+                </div>
+                <div class="sidebar-item" data-target="announcements">
+                    <i class="ph ph-megaphone"></i> <span>Bejelentések</span>
+                </div>
+                <div class="sidebar-item" data-target="settings">
+                    <i class="ph ph-gear"></i> <span>Beállítások</span>
+                </div>
+                <div class="sidebar-item" data-target="adminlogs" id="nav-adminlogs" style="display:none;">
+                    <i class="ph ph-scroll"></i> <span>Admin Logok</span>
+                </div>
+                <div class="sidebar-item" id="adminLogoutBtn" style="margin-top: auto; color: var(--danger-color);">
+                    <i class="ph ph-sign-out"></i> <span>Kilépés</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="admin-content">
+            <div class="admin-header">
+                <div style="display:flex; align-items:center;">
+                    <i class="ph ph-list mobile-menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')"></i>
+                </div>
+                <div style="text-align:center;">
+                    <h2 id="page-title" style="font-size:1.5rem;">Dashboard</h2>
+                </div>
+                <div class="admin-user-info">
+                    <span id="admin-name" style="margin-right:10px;">Admin</span>
+                    <span id="admin-role" class="status-badge badge-role-admin" style="margin-right:10px;">ADMIN</span>
+                    <button id="adminLogoutBtnHeader" class="btn small" style="background:transparent; border:1px solid #FF4B4B; color:#FF4B4B; padding:5px 10px;">Log out</button>
+                </div>
+            </div>
+            
+            <!-- Dashboard -->
+            <div id="dashboard" class="admin-section active">
+                <div class="stat-grid">
+                    <div class="stat-box-admin">
+                        <div class="stat-icon"><i class="ph ph-users"></i></div>
+                        <div class="stat-info">
+                            <h3 id="dash-total-users">0</h3>
+                            <p>Összes Felhasználó</p>
+                        </div>
+                    </div>
+                    <div class="stat-box-admin">
+                        <div class="stat-icon"><i class="ph ph-flag"></i></div>
+                        <div class="stat-info">
+                            <h3 id="dash-active-factions">0</h3>
+                            <p>Aktív Frakciók</p>
+                        </div>
+                    </div>
+                    <div class="stat-box-admin">
+                        <div class="stat-icon"><i class="ph ph-envelope-simple"></i></div>
+                        <div class="stat-info">
+                            <h3 id="dash-pending-apps">0</h3>
+                            <p>Függő Jelentkezés</p>
+                        </div>
+                    </div>
+                    <div class="stat-box-admin">
+                        <div class="stat-icon"><i class="ph ph-gavel"></i></div>
+                        <div class="stat-info">
+                            <h3 id="dash-admin-actions">0</h3>
+                            <p>Admin Műveletek Ma</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="admin-card">
+                        <h3>Utolsó 5 Jelentkezés</h3>
+                        <div id="dashboard-apps-list">
+                            <div style="text-align:center; color:var(--text-muted); padding:20px;">Betöltés...</div>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <h3>Utolsó 5 Admin Művelet</h3>
+                        <div id="dashboard-logs-list">
+                            <div style="text-align:center; color:var(--text-muted); padding:20px;">Betöltés...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications -->
+            <div id="applications" class="admin-section">
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead><tr><th>RP ID</th><th>Jelentkező</th><th>Frakció</th><th>Státusz</th><th>Dátum</th><th>Műveletek</th></tr></thead>
+                        <tbody id="applications-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Users -->
+            <div id="users" class="admin-section">
+                <div class="admin-card">
+                    <input type="text" id="user-search" placeholder="Keresés..." style="width: 100%; margin-bottom: 15px; padding: 12px; background: #0e0e0e; border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 4px;">
+                    <table class="admin-table">
+                        <thead><tr><th>RP ID</th><th>Username</th><th>Email</th><th>Role</th><th>Banned</th><th>Last Login</th><th>Műveletek</th></tr></thead>
+                        <tbody id="users-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Factions Management -->
+            <div id="factions" class="admin-section">
+                <div class="admin-card">
+                    <h3>Új Frakció Létrehozása</h3>
+                    <form id="create-faction-form" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                        <input type="text" id="new-faction-name" placeholder="Frakció neve" style="flex: 1; min-width: 200px;" required>
+                        <select id="new-faction-type" class="dark-select" required>
+                            <option value="LEO">Rendvédelem (LEO)</option>
+                            <option value="EMS">Mentős (EMS)</option>
+                            <option value="Mafia">Illegál (Mafia)</option>
+                            <option value="Civil">Civil / Cég</option>
+                        </select>
+                        <input type="number" id="new-faction-limit" placeholder="Max létszám" value="10">
+                        <button type="submit" class="btn small">Létrehozás</button>
+                    </form>
+                </div>
+                <div class="admin-card">
+                    <input type="text" id="faction-search" placeholder="Keresés név alapján..." style="width: 100%; margin-bottom: 15px; padding: 12px; background: #0e0e0e; border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 4px;">
+                    <table class="admin-table">
+                        <thead><tr><th>Név</th><th>Típus</th><th>Tagok</th><th>Állapot</th><th>Műveletek</th></tr></thead>
+                        <tbody id="factions-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin Logs -->
+            <div id="adminlogs" class="admin-section">
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Mikor</th>
+                                <th>Ki</th>
+                                <th>Mit</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-logs-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Announcements -->
+            <div id="announcements" class="admin-section">
+                <div class="admin-card">
+                    <h3>Új Közlemény</h3>
+                    <input type="text" id="new-announcement-title" placeholder="Cím" style="width:100%; background:#0e0e0e; border:1px solid rgba(255,255,255,0.1); color:white; padding:10px; border-radius:4px; margin-bottom:10px;">
+                    <textarea id="new-announcement-text" rows="3" placeholder="Rövid szöveg..." style="width:100%; background:#0e0e0e; border:1px solid rgba(255,255,255,0.1); color:white; padding:10px; border-radius:4px; margin-bottom:10px;"></textarea>
+                    <button class="btn small" id="btn-post-announcement">Közzététel</button>
+                </div>
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead><tr><th>Dátum</th><th>Cím</th><th>Státusz</th></tr></thead>
+                        <tbody id="announcements-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div id="settings" class="admin-section">
+                <div class="admin-card">
+                    <div class="settings-row">
+                        <label>Karbantartás Mód (Maintenance)</label>
+                        <label class="switch"><input type="checkbox" id="setting-maintenance"><span class="slider round"></span></label>
+                    </div>
+                    <div class="settings-row">
+                        <label>Frakció Jelentkezések Nyitva</label>
+                        <label class="switch"><input type="checkbox" id="setting-apps-lock"><span class="slider round"></span></label>
+                    </div>
+                    <div class="settings-row">
+                        <label>Regisztráció Nyitva</label>
+                        <label class="switch"><input type="checkbox" id="setting-reg-open"><span class="slider round"></span></label>
+                    </div>
+                    <button class="btn small" id="saveSettingsBtn" style="margin-top: 15px;">Beállítások Mentése</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side Panel (Right) -->
+    <div id="side-panel-overlay" class="side-panel-overlay"></div>
+    <div id="side-panel" class="side-panel">
+        <div class="side-panel-header">
+            <h3 id="sp-title">Részletek</h3>
+            <button class="close-sp" onclick="closeSidePanel()">&times;</button>
+        </div>
+        <div class="side-panel-body" id="sp-body">
+            <!-- Dynamic Content -->
+        </div>
+        <div class="side-panel-footer" id="sp-footer">
+            <!-- Dynamic Buttons -->
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="confirm-title">Megerősítés</h3>
+            <p id="confirm-msg" style="color:var(--text-muted); margin-bottom:20px;">Biztosan végrehajtod ezt a műveletet?</p>
+            <div style="display:flex; justify-content:flex-end; gap:10px;">
+                <button class="btn small secondary" onclick="document.getElementById('confirm-modal').classList.remove('active')">Mégse</button>
+                <button class="btn small" id="confirm-btn-action">Igen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

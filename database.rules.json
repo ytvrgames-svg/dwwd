@@ -1,0 +1,27 @@
+{
+  "rules": {
+    ".read": "true",
+    ".write": "auth != null",
+    "users": {
+      ".indexOn": ["rpId"],
+      ".read": "auth != null",
+      ".write": "root.child('users').child(auth.uid).child('role').val() === 'admin'"
+    },
+    "dispatch": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('job_title').val() === 'EMS'",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('job_title').val() === 'EMS'"
+    },
+    "reports": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('job_title').val() === 'EMS'",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('job_title').val() === 'EMS'"
+    },
+    "log": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('job_title').val() === 'EMS'",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('job_title').val() === 'EMS'"
+    },
+    "admin_actions": {
+      ".read": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin'"
+    }
+  }
+}

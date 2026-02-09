@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why City RP - Szabályzat</title>
+    
+    <!-- Fonts: Rajdhani (Headers) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Header / Nav -->
+    <nav>
+        <a href="index.html" class="logo">Why City RP</a>
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="about.html">Rólunk</a>
+            <a href="rules.html" class="active">Szabályzat</a>
+            <a href="#" id="loginBtn" class="btn nav-btn">Bejelentkezés</a>
+            <a href="#" id="logoutBtn" class="btn nav-btn" style="display:none; background-color: var(--secondary-color);">Kijelentkezés</a>
+        </div>
+    </nav>
+
+    <!-- 2. Hero / Fő banner -->
+    <div class="hero">
+        <h1>Miért fontosak a szabályok?</h1>
+        <p>A Why City RP világában mindenki biztonságban és fair módon játszhasson.</p>
+        <div>
+            <a href="https://discord.gg/placeholder" target="_blank" class="btn">Csatlakozás Discordra</a>
+        </div>
+    </div>
+
+    <!-- 3. Szabályok listája -->
+    <section class="rules-section">
+        <h2>Szerver Szabályzat</h2>
+        <ol class="rules-list">
+            <li>
+                <span class="rule-icon">🚫</span>
+                <div class="rule-content">
+                    <strong>Tilos csalni, hackelni</strong>
+                    <p>Minden külső program és hiba kihasználása szigorúan tilos.</p>
+                </div>
+            </li>
+            <li>
+                <span class="rule-icon">🤬</span>
+                <div class="rule-content">
+                    <strong>Tilos toxikus viselkedés</strong>
+                    <p>A közösség rombolása, mások zaklatása nem megengedett.</p>
+                </div>
+            </li>
+            <li>
+                <span class="rule-icon">⚖️</span>
+                <div class="rule-content">
+                    <strong>Admin döntéseit tiszteletben kell tartani</strong>
+                    <p>A vezetőség szava végleges, vitának helye nincs.</p>
+                </div>
+            </li>
+            <li>
+                <span class="rule-icon">🎭</span>
+                <div class="rule-content">
+                    <strong>Roleplay szabályok röviden</strong>
+                    <p>Mindig maradj karakterben és törekedj a realisztikus viselkedésre.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- 4. CTA -->
+    <section class="cta-section">
+        <h2>Csatlakozz még ma!</h2>
+        <div>
+            <a href="https://discord.gg/placeholder" target="_blank" class="btn">Csatlakozz Discordra</a>
+            <a href="#" id="heroRegBtn" class="btn secondary">Regisztráció</a>
+        </div>
+    </section>
+
+    <!-- 5. Footer -->
+    <footer>
+        <p>&copy; 2026 Why City RP. Minden jog fenntartva.</p>
+        <div class="social-links">
+            <a href="https://discord.gg/placeholder" target="_blank">Discord</a> | 
+            <a href="https://youtube.com" target="_blank">YouTube</a> | 
+            <a href="https://twitch.tv" target="_blank">Twitch</a>
+        </div>
+    </footer>
+
+    <!-- 3. Auth Modal (Reused) -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-target="login-view">Bejelentkezés</div>
+                <div class="auth-tab" data-target="register-view">Regisztráció</div>
+            </div>
+            <form id="login-view" class="auth-form active">
+                <input type="email" id="login-email" placeholder="Email cím" required>
+                <input type="password" id="login-password" placeholder="Jelszó" required>
+                <button type="submit" class="btn">Belépés</button>
+                <button type="button" id="google-login-btn" class="btn google-btn">Google Bejelentkezés</button>
+                <p class="auth-switch">Nincs még fiókod? <a href="#" id="switch-to-reg">Regisztráció</a></p>
+            </form>
+            <form id="register-view" class="auth-form">
+                <input type="email" id="reg-email" placeholder="Email cím" required>
+                <input type="tel" id="reg-phone" placeholder="Telefonszám (+36...)" required>
+                <input type="password" id="reg-password" placeholder="Jelszó" required>
+                <button type="submit" class="btn">Regisztráció</button>
+                <p class="auth-switch">Van már fiókod? <a href="#" id="switch-to-login">Bejelentkezés</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast">Üzenet szövege...</div>
+
+    <!-- Firebase Logic -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

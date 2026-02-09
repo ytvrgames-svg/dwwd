@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why City RP - Hivatalos Oldal</title>
+    
+    <!-- Fonts: Rajdhani (Headers) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 2.1 Header / Nav -->
+    <nav>
+        <div class="logo">Why City RP</div>
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="about.html">Rólunk</a>
+            <a href="rules.html">Szabályzat</a>
+            <a href="#" id="loginBtn" class="btn nav-btn">Bejelentkezés</a>
+            <div id="user-nav" style="display:none; align-items: center; gap: 15px;">
+                <a href="admin.html" id="adminBtn" class="btn nav-btn secondary" style="display:none; border-color: #ef4444; color: #ef4444;">Admin Panel</a>
+                <a href="#" id="profileBtn" class="btn nav-btn"><i class="ph ph-user"></i> Profil</a>
+                <a href="#" id="logoutBtn" class="btn nav-btn secondary">Kijelentkezés</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2.2 Hero / Fő bemutatkozás -->
+    <div id="home" class="hero">
+        <h1>Éld az életed. Írd a történeted.</h1>
+        <p>Csatlakozz a legrealisztikusabb magyar RP szerverhez. Egyedi scriptek, aktív közösség és határtalan lehetőségek várnak.</p>
+        <div>
+            <a href="https://discord.gg/placeholder" target="_blank" class="btn">Csatlakozás Discordra</a>
+            <a href="#" id="heroRegBtn" class="btn secondary">Regisztráció</a>
+        </div>
+    </div>
+
+    <!-- 2.3 Feature Cards -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="ph ph-police-car"></i>
+            <span>Rendvédelem</span>
+        </div>
+        <div class="feature-card">
+            <i class="ph ph-users-three"></i>
+            <span>Frakciók</span>
+        </div>
+        <div class="feature-card">
+            <i class="ph ph-buildings"></i>
+            <span>Nyitott Város</span>
+        </div>
+        <div class="feature-card">
+            <i class="ph ph-briefcase"></i>
+            <span>Vállalkozások</span>
+        </div>
+    </div>
+
+    <!-- 2.4 Frakciók -->
+    <section class="factions-section">
+        <h2>Válaszd meg az utad a városban</h2>
+        <p class="section-subtitle">Why City RP nem csak egy szerver – ez egy élő város, ahol minden döntésed számít.</p>
+        
+        <div class="factions-grid">
+            <div class="faction-box">
+                <h3>👮 LSPD – Los Santos Police Department</h3>
+                <p class="faction-motto">Szolgálj és védd a várost.</p>
+                <p class="faction-desc">A rendőrség feladata a közrend fenntartása, a bűnözés visszaszorítása és a város biztonságának garantálása. Járőrözés, nyomozás, üldözések és taktikai beavatkozások várnak rád.</p>
+                <div class="faction-recommendation">
+                    <strong>Ajánlott, ha:</strong>
+                    <ul>
+                        <li>szereted a strukturált RP-t</li>
+                        <li>csapatban gondolkodsz</li>
+                        <li>komolyan veszed a szabályokat</li>
+                    </ul>
+                </div>
+                <div class="faction-status status-green">🟢 Felvétel jelentkezés alapján</div>
+                <button class="btn small faction-apply-btn" data-faction="LSPD">Jelentkezés</button>
+            </div>
+            <div class="faction-box">
+                <h3>🚑 EMS – Mentőszolgálat</h3>
+                <p class="faction-motto">Minden élet számít.</p>
+                <p class="faction-desc">Az EMS tagjai a város csendes hősei. Balesetek, sérülések, sürgősségi helyzetek – a te döntéseiden múlhat mások sorsa.</p>
+                <div class="faction-recommendation">
+                    <strong>Ajánlott, ha:</strong>
+                    <ul>
+                        <li>nyugodt, realisztikus RP-t keresel</li>
+                        <li>szeretsz másokon segíteni</li>
+                        <li>fontos számodra a szerepjáték mélysége</li>
+                    </ul>
+                </div>
+                <div class="faction-status status-green">🟢 Felvétel jelentkezés alapján</div>
+                <button class="btn small faction-apply-btn" data-faction="EMS">Jelentkezés</button>
+            </div>
+            <div class="faction-box">
+                <h3>🕴️ Alvilág – Maffia & Szervezett bűnözés</h3>
+                <p class="faction-motto">A város sötét oldala.</p>
+                <p class="faction-desc">Illegális üzletek, titkos találkozók, hatalmi harcok. Itt nincs második esély – csak tisztelet és következmények.</p>
+                <div class="faction-recommendation">
+                    <strong>Ajánlott, ha:</strong>
+                    <ul>
+                        <li>mély, történetközpontú RP-t akarsz</li>
+                        <li>szereted a feszültséget és konfliktust</li>
+                        <li>hosszú távú karakterfejlődésben gondolkodsz</li>
+                    </ul>
+                </div>
+                <div class="faction-status status-red">🔴 Korlátozott helyek – szigorú elbírálás</div>
+                <button class="btn small faction-apply-btn" data-faction="MAFIA">Jelentkezés</button>
+            </div>
+            <div class="faction-box">
+                <h3>🧍 Civil</h3>
+                <p class="faction-motto">A város motorja.</p>
+                <p class="faction-desc">Civilként te döntöd el, ki leszel. Vállalkozó, taxis, szerelő, utcai árus vagy egyszerű városlakó – minden történet itt kezdődik.</p>
+                <div class="faction-recommendation">
+                    <strong>Ajánlott, ha:</strong>
+                    <ul>
+                        <li>most kezded az RP-t</li>
+                        <li>szabad, kötetlen játékmenetet akarsz</li>
+                        <li>saját történetet építenél</li>
+                    </ul>
+                </div>
+                <div class="faction-status status-green">🟢 Azonnal elérhető</div>
+                <!-- Civilhez nem kell jelentkezés gomb, az az alapértelmezett -->
+            </div>
+        </div>
+
+        <div class="factions-footer">
+            <p>„Minden frakció mögött valódi emberek és valódi történetek állnak. A kérdés csak az: te hova tartozol?”</p>
+        </div>
+    </section>
+
+    <!-- 2.5 Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">124 <span>Online Játékos</span></div>
+        <div class="stat-item">8 <span>Aktív Admin</span></div>
+        <div class="stat-item">12 <span>Városi Esemény</span></div>
+        <div class="stat-item"><span id="stat-players">0</span> <span>Online Játékos</span></div>
+        <div class="stat-item"><span id="stat-admins">0</span> <span>Aktív Admin</span></div>
+        <div class="stat-item"><span id="stat-events">0</span> <span>Városi Esemény</span></div>
+        <div class="stat-item">24/7 <span>Uptime</span></div>
+    </div>
+
+    <!-- 2.6 Footer -->
+    <footer>
+        <p>&copy; 2026 Why City RP. Minden jog fenntartva.</p>
+        <div class="social-links">
+            <a href="https://discord.gg/placeholder" target="_blank">Discord</a> | 
+            <a href="https://youtube.com" target="_blank">YouTube</a> | 
+            <a href="https://twitch.tv" target="_blank">Twitch</a>
+        </div>
+    </footer>
+
+    <!-- 3. Auth Modal -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-target="login-view">Bejelentkezés</div>
+                <div class="auth-tab" data-target="register-view">Regisztráció</div>
+            </div>
+
+            <!-- Login View -->
+            <form id="login-view" class="auth-form active">
+                <input type="email" id="login-email" placeholder="Email cím" autocomplete="email" required>
+                <input type="password" id="login-password" placeholder="Jelszó" autocomplete="current-password" required>
+                <button type="submit" class="btn">Belépés</button>
+                <button type="button" id="google-login-btn" class="btn google-btn">Google Bejelentkezés</button>
+                <p class="auth-switch">Nincs még fiókod? <a href="#" id="switch-to-reg">Regisztráció</a></p>
+            </form>
+
+            <!-- Register View -->
+            <form id="register-view" class="auth-form">
+                <input type="email" id="reg-email" placeholder="Email cím" autocomplete="email" required>
+                <input type="tel" id="reg-phone" placeholder="Telefonszám (+36...)" autocomplete="tel" required>
+                <input type="password" id="reg-password" placeholder="Jelszó" autocomplete="new-password" required>
+                <button type="submit" class="btn">Regisztráció</button>
+                <p class="auth-switch">Van már fiókod? <a href="#" id="switch-to-login">Bejelentkezés</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="modal-overlay">
+        <div class="modal-content profile-content">
+            <span class="close-modal">&times;</span>
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="ph ph-user-circle"></i>
+                    <div class="online-indicator"></div>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-email">Betöltés...</h2>
+                    <div class="status-container">
+                        <span id="profile-status">Épp a városban</span>
+                        <i class="ph ph-pencil-simple" id="editStatusBtn" title="Státusz szerkesztése"></i>
+                    </div>
+                    <span class="rp-id-badge" id="profile-rp-id">ID: ...</span>
+                </div>
+            </div>
+            
+            <div class="profile-scroll-area">
+                <div class="profile-stats-grid">
+                    <div class="stat-box">
+                        <span class="label">Frakció</span>
+                        <span class="value" id="profile-faction">Civil</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Reputáció</span>
+                        <span class="value" id="profile-reputation">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Fiók</span>
+                        <span class="value active">Aktív</span>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>Karakter</h3>
+                    <div class="character-slot">
+                        <i class="ph ph-user-plus"></i>
+                        <p>Még nincs karaktered</p>
+                        <button class="btn secondary small">Létrehozás</button>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>Játékos profil</h3>
+                    <div class="badges-list">
+                        <span class="badge" title="Első belépés">🏆 Első belépés</span>
+                        <span class="badge" title="Discord tag">👾 Discord tag</span>
+                    </div>
+                    <div class="playstyle-wrapper">
+                        <label>Játékstílus:</label>
+                        <select id="playstyle-select" class="dark-select">
+                            <option value="Civil">Civil</option>
+                            <option value="Lawful">Törvénytisztelő</option>
+                            <option value="Underworld">Alvilági</option>
+                            <option value="Trader">Kereskedő</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>Fiók adatok</h3>
+                    <div class="account-data-row"><span>Regisztráció:</span> <span id="profile-reg-date">...</span></div>
+                    <div class="account-data-row"><span>Utolsó belépés:</span> <span id="profile-last-login">...</span></div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>Beállítások</h3>
+                    <div class="settings-row"><label><input type="checkbox" checked> Frakció értesítések</label></div>
+                    <div class="settings-row"><label><input type="checkbox" checked> Admin üzenetek</label></div>
+                    <button class="btn secondary small" style="margin-top:10px; width:100%">Kijelentkezés minden eszközről</button>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="btn secondary" id="editProfileBtn">Adatok</button>
+                <button class="btn secondary" id="logoutBtnProfile">Kijelentkezés</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="text-align:center; margin-bottom: 20px; color: white;">Adatok módosítása</h2>
+            <form id="edit-profile-form" class="auth-form active">
+                <input type="text" autocomplete="username" style="display:none;">
+                <input type="password" placeholder="Új jelszó" autocomplete="new-password">
+                <input type="tel" placeholder="Új telefonszám" autocomplete="tel">
+                <button type="submit" class="btn">Mentés</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Faction Application Modal -->
+    <div id="application-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="text-align:center; margin-bottom: 10px; color: white;">Jelentkezés: <span id="app-faction-name" style="color:var(--primary-color)"></span></h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom: 20px;">Írd le röviden, miért szeretnél csatlakozni ehhez a frakcióhoz.</p>
+            
+            <form id="faction-application-form" class="auth-form active">
+                <input type="hidden" id="app-faction-id">
+                <textarea id="app-exp" rows="2" placeholder="RP Tapasztalat (Hol játszottál eddig?)" required></textarea>
+                <textarea id="app-reason" rows="3" placeholder="Miért ezt a frakciót választod?" required></textarea>
+                <textarea id="app-plan" rows="3" placeholder="IC/OOC elképzelésed a karakterrel" required></textarea>
+                <input type="number" id="app-hours" placeholder="Heti aktív órák száma" required>
+                <button type="submit" class="btn">Jelentkezés elküldése</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 4. Toast Notification -->
+    <div id="toast">Üzenet szövege...</div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Ugrás a tetejére"><i class="ph ph-arrow-up"></i></button>
+
+    <!-- Firebase Logic -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
